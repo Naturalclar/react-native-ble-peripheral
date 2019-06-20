@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/himelbrand/react-native-ble-peripheral.git"
+    "url": "git+https://github.com/Naturalclar/react-native-ble-peripheral.git"
   },
   "keywords": [
     "react-native",
@@ -20,7 +20,7 @@
   "author": "Omri Himelbrand",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/himelbrand/react-native-ble-peripheral/issues"
+    "url": "https://github.com/Naturalclar/react-native-ble-peripheral/issues"
   },
-  "homepage": "https://github.com/himelbrand/react-native-ble-peripheral#readme"
+  "homepage": "https://github.com/Naturalclar/react-native-ble-peripheral#readme"
 }
