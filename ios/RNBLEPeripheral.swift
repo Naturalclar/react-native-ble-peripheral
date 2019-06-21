@@ -78,15 +78,16 @@ class BLEPeripheral: RCTEventEmitter, CBPeripheralManagerDelegate {
     }
 
     @objc(sendNotificationToDevices:characteristicUUID:data:)
-    func sendNotificationToDevices(_ serviceUUID: String, characteristicUUID: String, data: Data) {
+    func sendNotificationToDevices(_ serviceUUID: String, characteristicUUID: String, data: String) {
         if(servicesMap.keys.contains(serviceUUID) == true){
             let service = servicesMap[serviceUUID]!
             let characteristic = getCharacteristicForService(service, characteristicUUID)
-            if (characteristic == nil) { alertJS("service \(serviceUUID) does NOT have characteristic \(characteristicUUID)") }
+            if (characteristic == nil) { alertJS("service \(serviceUUID) does NOT have characteristic \(characteristicUUID)") return}
 
             let char = characteristic as! CBMutableCharacteristic
-            char.value = data
-            let success = manager.updateValue( data, for: char, onSubscribedCentrals: nil)
+            dataValue = data.data(using: .utf8)
+            char.value = dataValue
+            let success = manager.updateValue( dataValue, for: char, onSubscribedCentrals: nil)
             if (success){
                 print("changed data for characteristic \(characteristicUUID)")
             } else {
